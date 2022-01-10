@@ -7,7 +7,7 @@ import java.util.Arrays;
  *
  * @author Michael Albert
  */
-public abstract class Rollin {
+public abstract class rollin {
 
     /*
      A convenience array used in determining whether or not six dice form
@@ -31,17 +31,17 @@ public abstract class Rollin {
 
     /**
      * Implementing classes should just call this superclass constructor which
-     * simply initialises the array of dice values. You may assume that it will
+     * simply initializes the array of dice values. You may assume that it will
      * only ever be called with arrays of six values from 1 to 6, sorted from
      * smallest to largest.
      *
      * @param dice
      */
-    public Rollin(int[] dice) {
+    public rollin(int[] dice) {
         this.dice = dice;
     }
     
-    public Rollin() {
+    public rollin() {
        this(new int[6]); 
     };
 
@@ -73,6 +73,7 @@ public abstract class Rollin {
      * any int outside of 0 to 5 if no replacement is made.
      */
     public abstract int handleRoll(int roll);
+    
 
     /**
      * Determine whether the current dice form two sets.
