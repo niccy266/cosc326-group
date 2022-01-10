@@ -11,6 +11,7 @@ public class Test{
     for(int i = 0; i < dice.length; i++) {
       dice[i] = R.nextInt(6) + 1;
     }
+    Arrays.sort(dice);
     Rollin roller = new RandomRoller(dice);
     System.out.println(Arrays.toString(dice));
     while (!roller.isComplete()) {
