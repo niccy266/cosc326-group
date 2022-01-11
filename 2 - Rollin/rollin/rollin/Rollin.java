@@ -7,24 +7,24 @@ import java.util.Arrays;
  *
  * @author Michael Albert
  */
-public abstract class rollin {
+public abstract class Rollin {
 
     /*
-     A convenience array used in determining whether or not six dice form
-     two sets -- it represents all the possible partitions of the indices 0
-     through 5 into two groups of three.
+     * A convenience array used in determining whether or not six dice form
+     * two sets -- it represents all the possible partitions of the indices 0
+     * through 5 into two groups of three.
      */
-    static final int[][][] setIndices = new int[][][]{
-        {{0, 1, 2}, {3, 4, 5}},
-        {{0, 1, 3}, {2, 4, 5}},
-        {{0, 1, 4}, {2, 3, 5}},
-        {{0, 1, 5}, {2, 3, 4}},
-        {{0, 2, 3}, {1, 4, 5}},
-        {{0, 2, 4}, {1, 3, 5}},
-        {{0, 2, 5}, {1, 3, 4}},
-        {{0, 3, 4}, {1, 2, 5}},
-        {{0, 3, 5}, {1, 2, 4}},
-        {{0, 4, 5}, {1, 2, 3}}
+    static final int[][][] setIndices = new int[][][] {
+            { { 0, 1, 2 }, { 3, 4, 5 } },
+            { { 0, 1, 3 }, { 2, 4, 5 } },
+            { { 0, 1, 4 }, { 2, 3, 5 } },
+            { { 0, 1, 5 }, { 2, 3, 4 } },
+            { { 0, 2, 3 }, { 1, 4, 5 } },
+            { { 0, 2, 4 }, { 1, 3, 5 } },
+            { { 0, 2, 5 }, { 1, 3, 4 } },
+            { { 0, 3, 4 }, { 1, 2, 5 } },
+            { { 0, 3, 5 }, { 1, 2, 4 } },
+            { { 0, 4, 5 }, { 1, 2, 3 } }
     };
 
     int[] dice;
@@ -37,12 +37,12 @@ public abstract class rollin {
      *
      * @param dice
      */
-    public rollin(int[] dice) {
+    public Rollin(int[] dice) {
         this.dice = dice;
     }
-    
-    public rollin() {
-       this(new int[6]); 
+
+    public Rollin() {
+        this(new int[6]);
     };
 
     /**
@@ -52,7 +52,7 @@ public abstract class rollin {
      * @return The current array of dice values.
      */
     public final int[] getDice() {
-        return Arrays.copyOf(dice,dice.length);
+        return Arrays.copyOf(dice, dice.length);
     }
 
     /**
@@ -70,10 +70,9 @@ public abstract class rollin {
      *
      * @param roll The value of the die roll
      * @return The index of the die whose value will be replaced by the roll, or
-     * any int outside of 0 to 5 if no replacement is made.
+     *         any int outside of 0 to 5 if no replacement is made.
      */
     public abstract int handleRoll(int roll);
-    
 
     /**
      * Determine whether the current dice form two sets.
@@ -88,7 +87,6 @@ public abstract class rollin {
         }
         return false;
     }
-    
 
     /**
      * Determine whether the dice at a given triple of indices form a set.

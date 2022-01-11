@@ -2,17 +2,17 @@ package rollin;
 
 import java.util.*;
 
-public class Test{
+public class Test {
 
   public static final Random R = new Random();
 
   public static void main(String[] args) {
     int[] dice = new int[6];
-    for(int i = 0; i < dice.length; i++) {
+    for (int i = 0; i < dice.length; i++) {
       dice[i] = R.nextInt(6) + 1;
     }
     Arrays.sort(dice);
-    rollin roller = new RandomRoller(dice);
+    Rollin roller = new RandomRoller(dice);
     System.out.println(Arrays.toString(dice));
     while (!roller.isComplete()) {
       int roll = R.nextInt(6) + 1;
