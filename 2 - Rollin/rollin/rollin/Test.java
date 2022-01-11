@@ -12,7 +12,7 @@ public class Test{
       dice[i] = R.nextInt(6) + 1;
     }
     Arrays.sort(dice);
-    Rollin roller = new RandomRoller(dice);
+    rollin roller = new RandomRoller(dice);
     System.out.println(Arrays.toString(dice));
     while (!roller.isComplete()) {
       int roll = R.nextInt(6) + 1;
