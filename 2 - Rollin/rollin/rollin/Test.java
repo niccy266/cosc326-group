@@ -7,6 +7,10 @@ public class Test {
   public static final Random R = new Random();
 
   public static void main(String[] args) {
+    test();
+  }
+
+  public static void test() {
     int[] dice = new int[6];
     for (int i = 0; i < dice.length; i++) {
       dice[i] = R.nextInt(6) + 1;
