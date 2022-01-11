@@ -7,4 +7,4 @@
 .Rhistory
 .RData
 *.tmp
-.vscode
+/.vscode
