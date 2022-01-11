@@ -60,11 +60,11 @@ public class RandomRoller extends Rollin {
     ;
 
     int best = 0;
-    int bestVal = working[0];
+    int bestVal = vals[0];
     for (int i = 1; i < 7; i++) {
-      if (bestVal < working[i]) {
+      if (bestVal < vals[i]) {
         best = i;
-        bestVal = working[i];
+        bestVal = vals[i];
       }
     }
 
@@ -96,7 +96,7 @@ public class RandomRoller extends Rollin {
       val++;
     if (!(num + 2 > 5) && (numCount[num + 1] != 0 || numCount[num + 2] != 0))
       val++;
-    val += numCount[num + 1];
+    val += numCount[num] - 1;
 
     return val;
   }
