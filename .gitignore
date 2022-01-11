@@ -8,3 +8,4 @@
 .RData
 *.tmp
 /.vscode
+.vscode/launch.json
