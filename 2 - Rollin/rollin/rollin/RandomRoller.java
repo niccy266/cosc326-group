@@ -2,7 +2,7 @@ package rollin;
 
 import java.util.*;
 
-public class RandomRoller extends rollin {
+public class RandomRoller extends Rollin {
 
   public static final Random R = new Random();
 
