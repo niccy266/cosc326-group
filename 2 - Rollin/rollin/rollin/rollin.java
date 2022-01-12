@@ -7,7 +7,7 @@ import java.util.Arrays;
  *
  * @author Michael Albert
  */
-public abstract class rollin {
+public abstract class Rollin {
 
     /*
      A convenience array used in determining whether or not six dice form
@@ -37,11 +37,11 @@ public abstract class rollin {
      *
      * @param dice
      */
-    public rollin(int[] dice) {
+    public Rollin(int[] dice) {
         this.dice = dice;
     }
     
-    public rollin() {
+    public Rollin() {
        this(new int[6]); 
     };
 
