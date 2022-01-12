@@ -21,7 +21,8 @@ public class RandomRoller extends Rollin {
       for (int j = 0; j < 6; j++) {
         working[j] = dice[j];
       }
-
+      // iterates through and sees if a solution can be found where one of the dies can
+      // be replaced by the roll to be complete
       if (i != 6) {
         working[i] = roll;
       }
