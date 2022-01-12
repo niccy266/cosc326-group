@@ -40,6 +40,7 @@ public class CompareTest {
         }
         System.out.println("\naverage number of rolls: " + ((float) sum / testCount));
         int maxIndex = getIndexOfLargest(rolls);
+        System.out.println(Arrays.toString(rolls));
         Arrays.sort(rolls);
         int lt = 0, lq = 0, uq = 0, ut = 0;
         for (int i = 0; i < rolls.length / 4; i++) {
