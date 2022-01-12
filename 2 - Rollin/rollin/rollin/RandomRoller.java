@@ -6,99 +6,12 @@ public class RandomRoller extends Rollin {
 
   public static final Random R = new Random();
 
-  static int count = 0;
-  static int vals[] = new int[7];
-  static int working[] = new int[6];
-  static int diceVals[] = new int[6];
-  static int numCount[] = new int[6];
-
   public RandomRoller(int[] dice) {
     super(dice);
   }
-
-  /*
-   * william's solution
-   *
-   * public int handleRoll(int roll) {
-   * int returned_die;
-   * // get rid of any 1s or 5s
-   * if (dice[0] == 1) {
-   * returned_die = 0;
-   * } else if (dice[5] == 6){
-   * returned_die = 5;
-   * // then pick something from the ends
-   * } else if ((roll == 1) || (roll == 6)) {
-   * // unless you've rolled a 1 or 6
-   * // in which case skip
-   * returned_die = 6;
-   * }
-   * else {
-   * // snip off the end
-   * returned_die = (count % 2) * 5; }
-   * count++;
-   * // roll is the value of the 7th die
-   * return returned_die;
-   * }
-   */
-
+  
   public int handleRoll(int roll) {
-    for (int i = 0; i < 7; i++) {
-      for (int j = 0; j < 6; j++) {
-        working[j] = dice[j];
-      }
-
-      if (i != 6) {
-        working[i] = roll;
-      }
-
-      if (new RandomRoller(working).isComplete()) {
-        return i;
-      }
-
-      vals[i] = calculateValues(roll);
-    }
-    ;
-
-    int best = 7;
-    int bestVal = vals[0];
-    for (int i = 1; i < 7; i++) {
-      if (bestVal < vals[i]) {
-        best = i;
-        bestVal = vals[i];
-      }
-    }
-
-    return best;
-  }
-
-  public static int calculateValues(int roll) {
-    for (int j = 0; j < 6; j++) {
-      numCount[j] = 0;
-    }
-    for (int j = 0; j < 6; j++) {
-      numCount[working[j] - 1]++;
-    }
-
-    int val = 0;
-    for (int j = 0; j < 6; j++) {
-      val += diceValue(j);
-    }
-
-    return val;
-  }
-
-  public static int diceValue(int i) {
-    int num = working[i] - 1;
-    int val = 0;
-    if (!(num - 1 < 0 || num + 1 > 5) && ((numCount[num - 1] != 0 || numCount[num + 1] != 0)))
-      val++;
-    if (!(num - 2 < 0) && (numCount[num - 2] != 0 || numCount[num - 1] != 0))
-      val++;
-    if (!(num + 2 > 5) && (numCount[num + 1] != 0 || numCount[num + 2] != 0))
-      val++;
-    val += (numCount[num] - 1 > 2) ? 2 : numCount[num] - 1;
-
-    return val;
+    return R.nextInt(6);
   }
 
 }
