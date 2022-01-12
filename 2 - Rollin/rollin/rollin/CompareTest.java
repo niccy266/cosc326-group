@@ -2,10 +2,12 @@ package rollin;
 
 import java.util.*;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 public class CompareTest {
 
     public static final Random R = new Random();
-    public static final int testCount = 1000;
+    public static final int testCount = 100;
     public static int[] rolls = new int[testCount];
 
     public static void main(String[] args) {
@@ -18,8 +20,8 @@ public class CompareTest {
             Arrays.sort(dice);
 
             // change this to the roller class to test
-            Rollin roller = new NicoRoller(dice);
-            //System.out.println(Arrays.toString(dice));
+            Rollin roller = new EndRoller(dice);
+            System.out.println(Arrays.toString(dice));
         
         
             int count = 0;
@@ -27,15 +29,15 @@ public class CompareTest {
                 int roll = R.nextInt(6) + 1;
                 int i = roller.handleRoll(roll);
                 count++;
-                //System.out.println("Rolled " + roll + " used at " + i);
+                System.out.println("Rolled " + roll + " used at " + i);
                 if (0 <= i && i < 6) {
                     dice[i] = roll;
                 }
                 Arrays.sort(dice);
-                //System.out.println(Arrays.toString(dice));
+                System.out.println(Arrays.toString(dice));
                 roller.setDice(dice);
             }
-            // System.out.println("number of rolls: " + count + " run: " + (rollNo + 1) +"\n");
+            System.out.println("number of rolls: " + count + " run: " + (rollNo + 1) +"\n");
             sum += count;
             rolls[rollNo] = count;
         }
@@ -49,5 +51,26 @@ public class CompareTest {
             ut += rolls[i+3*rolls.length/4];
         }
         System.out.println("lt: "+ (float) 4 * lt/testCount + " lq: "+ (float) 4 * lq/testCount + "uq: "+ (float) 4 * uq/testCount + " ut: "+ (float) 4 * ut/testCount);
+        //System.out.println("mode:" + mode(rolls));
+        System.out.println("max" + rolls[testCount-1]);
+    }
+
+
+    
+    public static int mode(int a[]) {
+        int maxValue = 0, maxCount = 0;
+    
+        for (int i = 0; i < a.length; ++i) {
+            int count = 0;
+            for (int j = 0; j < a.length; ++j) {
+                if (a[j] == a[i]) ++count;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                maxValue = a[i];
+            }
+        }
+    
+        return maxValue;
     }
 }
