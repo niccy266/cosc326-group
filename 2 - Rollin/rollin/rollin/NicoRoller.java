@@ -59,6 +59,7 @@ public class NicoRoller extends Rollin {
     }
     ;
 
+
     int best = 0;
     int bestVal = vals[0];
     for (int i = 1; i < 7; i++) {
@@ -83,7 +84,7 @@ public class NicoRoller extends Rollin {
     for (int j = 0; j < 6; j++) {
       val += diceValue(j);
     }
-
+    
     return val;
   }
 

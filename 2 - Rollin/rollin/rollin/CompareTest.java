@@ -5,7 +5,7 @@ import java.util.*;
 public class CompareTest {
 
     public static final Random R = new Random();
-    public static final int testCount = 10000;
+    public static final int testCount = 1000000;
     public static int[] rolls = new int[testCount];
 
     public static void main(String[] args) {
@@ -18,29 +18,29 @@ public class CompareTest {
             Arrays.sort(dice);
 
             // change this to the roller class to test
-            Rollin roller = new NicoRoller(dice);
-            System.out.println(Arrays.toString(dice));
+            Rollin roller = new WilliamRoller(dice);
+            //System.out.println(Arrays.toString(dice));
 
             int count = 0;
             while (!roller.isComplete()) {
                 int roll = R.nextInt(6) + 1;
                 int i = roller.handleRoll(roll);
                 count++;
-                System.out.println("Rolled " + roll + " used at " + i);
+                //System.out.println("Rolled " + roll + " used at " + i);
                 if (0 <= i && i < 6) {
                     dice[i] = roll;
                 }
                 Arrays.sort(dice);
-                System.out.println(Arrays.toString(dice));
+                //System.out.println(Arrays.toString(dice));
                 roller.setDice(dice);
             }
-            System.out.println("number of rolls: " + count + " run: " + (rollNo + 1) + "\n");
+            //System.out.println("number of rolls: " + count + " run: " + (rollNo + 1) + "\n");
             sum += count;
             rolls[rollNo] = count;
         }
         System.out.println("\naverage number of rolls: " + ((float) sum / testCount));
         int maxIndex = getIndexOfLargest(rolls);
-        System.out.println(Arrays.toString(rolls));
+        //System.out.println(Arrays.toString(rolls));
         Arrays.sort(rolls);
         int lt = 0, lq = 0, uq = 0, ut = 0;
         for (int i = 0; i < rolls.length / 4; i++) {
@@ -52,7 +52,7 @@ public class CompareTest {
         System.out.println("lt: " + (float) 4 * lt / testCount + " lq: " + (float) 4 * lq / testCount + "uq: "
                 + (float) 4 * uq / testCount + " ut: " + (float) 4 * ut / testCount);
         // System.out.println("mode:" + mode(rolls));
-        System.out.println("max" + rolls[testCount - 1] + " index: " + maxIndex + 1);
+        System.out.println("max" + rolls[testCount - 1] + " index: " + (maxIndex + 1));
         
     }
 

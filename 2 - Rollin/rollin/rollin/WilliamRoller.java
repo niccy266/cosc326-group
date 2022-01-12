@@ -35,7 +35,7 @@ public class WilliamRoller extends Rollin {
     }
     ;
 
-    int best = 7;
+    int best = 0;
     int bestVal = values[0];
     for (int i = 1; i < 7; i++) {
       if (bestVal < values[i]) {
