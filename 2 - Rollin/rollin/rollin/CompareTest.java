@@ -5,7 +5,7 @@ import java.util.*;
 public class CompareTest {
 
     public static final Random R = new Random();
-    public static final int testCount = 1000000;
+    public static final int testCount = 100000;
 
     public static void main(String[] args) {
         int sum = 0;
@@ -15,7 +15,9 @@ public class CompareTest {
                 dice[i] = R.nextInt(6) + 1;
             }
             Arrays.sort(dice);
-            Rollin roller = new EndRoller(dice);
+
+            // change this to the roller class to test
+            Rollin roller = new NicoRoller(dice);
             //System.out.println(Arrays.toString(dice));
             int count = 0;
             while (!roller.isComplete()) {
