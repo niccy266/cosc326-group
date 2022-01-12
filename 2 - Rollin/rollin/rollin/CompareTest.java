@@ -18,7 +18,7 @@ public class CompareTest {
             Arrays.sort(dice);
 
             // change this to the roller class to test
-            Rollin roller = new EndRoller(dice);
+            Rollin roller = new NicoRoller(dice);
             System.out.println(Arrays.toString(dice));
 
             int count = 0;
