@@ -37,9 +37,17 @@ public class CompareTest {
             }
             // System.out.println("number of rolls: " + count + " run: " + (rollNo + 1) +"\n");
             sum += count;
-            rolls = rolls[rollNo];
+            rolls[rollNo] = count;
         }
         System.out.println("\naverage number of rolls: " + ((float) sum/testCount));
-        System.out.println(Arrays.toString(rolls));
+        Arrays.sort(rolls);
+        int lt = 0,lq = 0, uq = 0,ut = 0;
+        for(int i=0; i<rolls.length/4; i++) {
+        	lt += rolls[i];
+            lq += rolls[i+rolls.length/4];
+            uq += rolls[i+2*rolls.length/4];
+            ut += rolls[i+3*rolls.length/4];
+        }
+        System.out.println("lt: "+ (float) 4 * lt/testCount + " lq: "+ (float) 4 * lq/testCount + "uq: "+ (float) 4 * uq/testCount + " ut: "+ (float) 4 * ut/testCount);
     }
 }
