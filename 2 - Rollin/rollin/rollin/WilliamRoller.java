@@ -1,0 +1,41 @@
+package rollin;
+
+import java.util.*;
+
+public class WilliamRoller extends Rollin {
+
+  public static final Random R = new Random();
+
+  static int count = 0;
+  static int vals[] = new int[7];
+  static int working[] = new int[6];
+  static int diceVals[] = new int[6];
+  static int numCount[] = new int[6];
+
+  public WilliamRoller(int[] dice) {
+    super(dice);
+  }
+
+  // william's solution
+  public int handleRoll(int roll) {
+    int returned_die;
+    // get rid of any 1s or 5s
+    if (dice[0] == 1) {
+      returned_die = 0;
+    } else if (dice[5] == 6) {
+      returned_die = 5;
+      // then pick something from the ends
+    } else if ((roll == 1) || (roll == 6)) {
+      // unless you've rolled a 1 or 6
+      // in which case skip
+      returned_die = 6;
+    } else {
+      // snip off the end
+      returned_die = (count % 2) * 5;
+    }
+    count++;
+    // roll is the value of the 7th die
+    return returned_die;
+  }
+
+}
