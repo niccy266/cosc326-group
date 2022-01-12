@@ -2,12 +2,10 @@ package rollin;
 
 import java.util.*;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
-
 public class CompareTest {
 
     public static final Random R = new Random();
-    public static final int testCount = 100;
+    public static final int testCount = 10000;
     public static int[] rolls = new int[testCount];
 
     public static void main(String[] args) {
