@@ -19,6 +19,8 @@ public class CompareTest {
             // change this to the roller class to test
             Rollin roller = new NicoRoller(dice);
             //System.out.println(Arrays.toString(dice));
+        
+        
             int count = 0;
             while (!roller.isComplete()) {
                 int roll = R.nextInt(6) + 1;
@@ -32,7 +34,7 @@ public class CompareTest {
                 //System.out.println(Arrays.toString(dice));
                 roller.setDice(dice);
             }
-            //System.out.println("number of rolls: " + count + " run: " + (rollNo + 1) +"\n");
+            // System.out.println("number of rolls: " + count + " run: " + (rollNo + 1) +"\n");
             sum += count;
         }
         System.out.println("\naverage number of rolls: " + ((float) sum/testCount));
